@@ -8,6 +8,7 @@ $inst = new TestMain();
 $the_user_ks_to_use = $inst->loadConfig();
 $the_user_ks_to_use = $inst->listActions();
 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -125,7 +126,7 @@ $the_user_ks_to_use = $inst->listActions();
                     };
                 }
                 
-                var entry = {objectType: "KalturaMediaEntry", name: "fromJS", mediaType: 2};
+                var entry = {objectType: "KalturaMediaEntry", name: encodeURIComponent(file.name), mediaType: 2};
 
                 client.setKs("<?php echo $the_user_ks_to_use; ?>");
                 var result = client.media.add(cb, entry);
